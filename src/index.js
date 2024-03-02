@@ -30,8 +30,8 @@ app.get("/productos", (req, res)=>{
     }) 
 })
 
-app.get("/productos", (req, res)=>{
-    connection.query('SELECT * FROM producto WHERE id=' + req.body.id, (error, results, fields)=>{
+app.get("/productos/:id", (req, res)=>{
+    connection.query('SELECT * FROM producto WHERE id=' + req.query.id, (error, results, fields)=>{
         if(error) {
             res.status(500).json(error);
             return;
